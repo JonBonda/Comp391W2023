@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+//using UnityEngine.Windows;
+//using UnityEngine.Input;
+
+public class PlayerController : MonoBehaviour
+{
+    public int speed;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+
+    // 60 frames in 1 second --> 1 sec video of good quality
+    // Update is called once per frame
+    void Update()
+    {
+        float h, v;
+        h = UnityEngine.Input.GetAxis("Horizontal");
+        v = UnityEngine.Input.GetAxis("Vertical");
+     //   Debug.Log("horizontal values : " + h + "vertical values : " + v);
+        Vector2 newvelocity = new Vector2(h, v);
+        GetComponent<Rigidbody2D>().velocity = newvelocity * speed;
+    }
+}
